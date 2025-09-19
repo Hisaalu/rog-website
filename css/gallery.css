@@ -46,7 +46,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0 20px;
-    box-sizing: border-box;
     background-position: center bottom;
     overflow: hidden;
 }
@@ -66,15 +65,16 @@ body {
     color: var(--white);
     z-index: 2;
     position: relative;
+    padding: 0 10px;
 }
 
 .gallery-overlay h2 {
-    font-size: 80px;
+    font-size: clamp(28px, 6vw, 80px); /* scales with screen size */
     font-weight: 300;
     margin-bottom: 10px;
     letter-spacing: 2px;
     font-family: var(--primary-font);
-    white-space: nowrap;
+    white-space: normal; /* allow wrapping */
 }
 
 /* ------------------------------------ */
@@ -82,7 +82,6 @@ body {
 /* ------------------------------------ */
 
 .container {
-    height: auto;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto 30px;
@@ -90,28 +89,20 @@ body {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   padding: 40px 20px;
 }
 
 .gallery-item {
-  /* background: var(--white);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s; */
-  text-align:justify;
+  text-align: justify;
   font-style: italic;
 }
 
-/* .gallery-item:hover {
-  transform: translateY(-5px);
-} */
-
 .gallery-item img {
   width: 100%;
-  height: 200px;
+  height: auto;              /* make image height flexible */
+  max-height: 250px;         /* prevent it from being too tall */
   object-fit: cover;
   display: block;
 }
@@ -130,7 +121,27 @@ body {
 
 @media (max-width: 768px) {
     .container {
-        height: 100%;
         width: 95%;
+    }
+
+    .gallery-grid {
+        gap: 15px;
+        padding: 20px 10px;
+    }
+
+    .gallery-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-overlay h2 {
+        font-size: clamp(22px, 8vw, 32px); /* very small screens */
+        letter-spacing: 1px;
+    }
+
+    .gallery-description {
+        font-size: 0.85rem;
+        padding: 10px;
     }
 }

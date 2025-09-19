@@ -177,7 +177,39 @@ body {
 /* --- 4. Responsive Design --- */
 /* ------------------------------------ */
 
+@media (max-width: 1024px) {
+    .contact-heading {
+        font-size: 60px;
+    }
+
+    .contactform-info p {
+        margin-left: 50px;
+    }
+
+    .map-container {
+        height: 400px;
+    }
+}
+
 @media (max-width: 768px) {
+    .contact-heading {
+        font-size: 40px;
+    }
+
+    .contactform-info {
+        font-size: 1em;
+    }
+
+    .contactform-info p {
+        margin-left: 0;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .form-group {
+        max-width: 100%;
+    }
+
     .map-header {
         margin-bottom: 15px;
     }
@@ -192,5 +224,31 @@ body {
 
     .map-container {
         height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-heading {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .message-heading {
+        font-size: 22px;
+    }
+
+    .contactform-info p {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .contact-form button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    .map-container {
+        height: 200px;
     }
 }

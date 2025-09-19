@@ -4,14 +4,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* Global Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Root Variables for Theming */
 :root {
     --primary-purple: #7f2677;
     --secondary-purple: #a855f7;
@@ -44,12 +42,10 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0 20px;
-    box-sizing: border-box;
     background-position: center bottom;
     overflow: hidden;
 }
 
-/* Overlay for the background image */
 #admission-section::before {
     content: "";
     position: absolute;
@@ -58,21 +54,21 @@ body {
     z-index: 1;
 }
 
-/* Text on top of the overlay */
 .admission-overlay {
     text-align: center;
     color: var(--white);
     z-index: 2;
     position: relative;
+    padding: 0 10px;
 }
 
 .admission-overlay h2 {
-    font-size: 80px;
+    font-size: clamp(28px, 6vw, 80px); /* scales smoothly */
     font-weight: 300;
     margin-bottom: 10px;
     letter-spacing: 2px;
     font-family: var(--primary-font);
-    white-space: nowrap;
+    white-space: normal; /* allow wrapping */
 }
 
 /* ------------------------------------ */
@@ -80,7 +76,7 @@ body {
 /* ------------------------------------ */
 
 #creteria-section {
-    padding: 50px 20px;
+    padding: clamp(30px, 5vw, 60px) 20px;
     background: var(--white);
 }
 
@@ -94,11 +90,11 @@ body {
 
 .column {
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
 }
 
 .column h2 {
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
     font-weight: 700;
     color: var(--primary-purple);
     margin-bottom: 15px;
@@ -109,7 +105,7 @@ body {
 .column p,
 .column ul {
     margin-bottom: 20px;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     color: black;
     text-align: justify;
 }
@@ -180,12 +176,36 @@ button[type="submit"]:hover {
 /* --- 4. Responsive Design --- */
 /* ------------------------------------ */
 
+@media (max-width: 1024px) {
+    .admission-container {
+        gap: 30px;
+    }
+}
+
 @media (max-width: 768px) {
     .admission-container {
         flex-direction: column;
     }
 
     .admission-overlay h2 {
-        font-size: 2rem;
+        font-size: clamp(28px, 8vw, 50px);
+    }
+
+    .column h2 {
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+    }
+
+    .column p,
+    .column ul {
+        font-size: clamp(0.85rem, 2.5vw, 1rem);
+    }
+
+    fieldset {
+        padding: 15px;
+    }
+
+    button[type="submit"] {
+        padding: 10px;
+        font-size: 0.95rem;
     }
 }

@@ -198,6 +198,33 @@ body {
     padding-left: 20px;
 }
 
+/* Social Icons */
+.social-icons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: #7f2677;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.3rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: #f06724;
+  transform: scale(1.1);
+}
+
 /* ------------------------------------ */
 /* --- 5. Responsive Design --- */
 /* ------------------------------------ */

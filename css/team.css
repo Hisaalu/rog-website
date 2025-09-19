@@ -49,12 +49,10 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0 20px;
-    box-sizing: border-box;
     background-position: center bottom;
     overflow: hidden;
 }
 
-/* Dark overlay for the background image */
 #team-section::before {
     content: "";
     position: absolute;
@@ -63,21 +61,21 @@ body {
     z-index: 1;
 }
 
-/* Text on top of the overlay */
 .team-overlay {
-    text-align: left;
+    text-align: center;
     color: white;
     z-index: 2;
     position: relative;
+    padding: 0 10px;
 }
 
 .team-overlay h2 {
-    font-size: 80px;
+    font-size: clamp(28px, 6vw, 80px); /* scales smoothly */
     font-weight: 300;
     margin-bottom: 10px;
     letter-spacing: 2px;
     font-family: var(--primary-font);
-    white-space: nowrap;
+    white-space: normal; /* allow wrapping */
 }
 
 /* ------------------------------------ */
@@ -92,7 +90,7 @@ body {
 }
 
 .team-title h2 {
-    font-size: 3em;
+    font-size: clamp(24px, 3vw, 48px);
     margin-bottom: 20px;
     color: var(--primary-purple);
     margin-top: 15px;
@@ -110,7 +108,7 @@ body {
     padding: 20px;
 }
 
-/* Styling for the main card container */
+/* Card container */
 .team-member {
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -123,12 +121,13 @@ body {
     width: 100%;
     max-width: 480px;
     margin: 0 auto;
+    flex-direction: row; /* default desktop layout */
 }
 
-/* Styling for the profile picture */
+/* Profile picture */
 .profile-pic {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 8px;
     overflow: hidden;
     flex-shrink: 0;
@@ -140,14 +139,14 @@ body {
     object-fit: cover;
 }
 
-/* Styling for the text content */
+/* Text content */
 .member-info {
     flex: 1;
     text-align: left;
 }
 
 .member-info h3 {
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: 600;
     margin: 0;
     color: #333;
@@ -170,7 +169,6 @@ body {
     margin-bottom: 5px;
 }
 
-/* To style the vertical line */
 .member-info h4 span {
     color: #999;
     font-size: 1em;
@@ -184,12 +182,50 @@ body {
 
 @media (max-width: 1024px) {
     .team-overlay h2 {
-        font-size: 60px;
+        font-size: clamp(32px, 5vw, 60px);
     }
 }
 
 @media (max-width: 768px) {
+    .team-member {
+        flex-direction: column; /* stack image & text */
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+
+    .member-info {
+        text-align: center;
+    }
+
+    .member-info h3 {
+        font-size: 1.2em;
+    }
+
+    .member-info h4 {
+        font-size: 0.95em;
+    }
+
+    .member-info p {
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
     .team-overlay h2 {
-        font-size: 40px;
+        font-size: clamp(22px, 7vw, 32px);
+        letter-spacing: 1px;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .member-info h3 {
+        font-size: 1.1em;
     }
 }

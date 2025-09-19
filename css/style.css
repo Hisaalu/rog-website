@@ -1387,3 +1387,34 @@ footer .footer-bottom {
     background-color: var(--secondary-orange);
     opacity: 0.9;
 } 
+
+/* Always keep menu toggle + search visible on tiny screens */
+@media (max-width: 500px) {
+  .logo-img {
+    height: 90px;   /* shrink logo more */
+  }
+
+  .nav-menu {
+    display: none; /* hide desktop menu completely */
+  }
+
+  .nav-actions {
+    gap: 8px; /* tighter spacing */
+  }
+
+  .search-button {
+    padding: 6px; /* smaller hit area */
+  }
+
+  .menu-toggle {
+    display: block !important; /* force show */
+  }
+}
+
+/* Hide Donate button on mobile */
+@media (max-width: 768px) {
+  .donate-btn {
+    display: none !important;
+  }
+}
+
