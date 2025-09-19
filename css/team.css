@@ -1,0 +1,195 @@
+/* ------------------------------------ */
+/* --- 1. Base and Utility Styles --- */
+/* ------------------------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap');
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root Variables for Theming */
+:root {
+    --primary-purple: #7f2677;
+    --secondary-purple: #a855f7;
+    --light-purple: #e9d5ff;
+    --primary-orange: #f06724;
+    --secondary-orange: #fb923c;
+    --light-orange: #fed7aa;
+    --dark-gray: #374151;
+    --light-gray: #f9fafb;
+    --white: #ffffff;
+
+    /* Fonts */
+    --primary-font: "Anton", sans-serif;
+    --secondary-font: "Lora", serif;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray);
+}
+
+/* ------------------------------------ */
+/* --- 2. Team Header Section --- */
+/* ------------------------------------ */
+
+#team-section {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    background: url("../images/footer-img/footer-bg.jpg") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-position: center bottom;
+    overflow: hidden;
+}
+
+/* Dark overlay for the background image */
+#team-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Text on top of the overlay */
+.team-overlay {
+    text-align: left;
+    color: white;
+    z-index: 2;
+    position: relative;
+}
+
+.team-overlay h2 {
+    font-size: 80px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-family: var(--primary-font);
+    white-space: nowrap;
+}
+
+/* ------------------------------------ */
+/* --- 3. Team Grid & Cards --- */
+/* ------------------------------------ */
+
+.team-title {
+    margin-top: 20px;
+    text-align: center;
+    font-family: var(--primary-font);
+    color: black;
+}
+
+.team-title h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: var(--primary-purple);
+    margin-top: 15px;
+    font-family: var(--primary-font);
+    border-bottom: 3px solid var(--primary-orange);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Styling for the main card container */
+.team-member {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Styling for the profile picture */
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Styling for the text content */
+.member-info {
+    flex: 1;
+    text-align: left;
+}
+
+.member-info h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.member-info h4 {
+    font-size: 1em;
+    font-weight: 400;
+    color: var(--primary-orange);
+    margin: 5px 0 15px;
+}
+
+.member-info p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 0;
+}
+
+.member-info p:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+/* To style the vertical line */
+.member-info h4 span {
+    color: #999;
+    font-size: 1em;
+    font-weight: 400;
+    padding: 0 5px;
+}
+
+/* ------------------------------------ */
+/* --- 4. Responsive Design --- */
+/* ------------------------------------ */
+
+@media (max-width: 1024px) {
+    .team-overlay h2 {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-overlay h2 {
+        font-size: 40px;
+    }
+}

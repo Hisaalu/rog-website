@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Rays of Grace</title>
+    <link rel="icon" type="image/x-icon" href="../images/fav-img/favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/gallery.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo" onclick="showPage('home')">
+                <img src="../images/logo-img/logo.png" alt="Rays School Logo" class="logo-img">
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" onclick="showPage('home')">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                    <div class="dropdown">
+                        <a href="about.html" class="dropdown-link" onclick="showPage('about-school')">About Our School</a>
+                        <a href="team.html" class="dropdown-link" onclick="showPage('meet-team')">Meet Our Team</a>
+                        <a href="coming_soon.html" class="dropdown-link" onclick="showPage('school-profile')">School Profile</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="programs.html" class="nav-link">Study at Rays</a>
+                    <div class="dropdown">
+                        <a href="programs.html" class="dropdown-link" onclick="showPage('programs')">Our Programs</a>
+                        <a href="admission.html" class="dropdown-link" onclick="showPage('admission')">Admission</a>
+                        <a href="coming_soon.html" class="dropdown-link" onclick="showPage('scholarships')">Scholarships</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="gallery.html" class="nav-link" onclick="showPage('gallery')">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link">News & Events</a>
+                    <div class="dropdown">
+                        <a href="news.html" class="dropdown-link" onclick="showPage('news')">News & Events</a>
+                        <a href="coming_soon.html" class="dropdown-link" onclick="showPage('termly-news')">Termly News</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" onclick="showPage('contact')">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="search-button" onclick="toggleSearch()">
+                    <svg class="search-icon" viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </button>
+                <button class="donate-btn">Donate</button>
+                <div class="nav-actions">
+                    <button class="menu-toggle" id="menu-toggle" onclick="toggleMobileMenu()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="icon-menu">
+                            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="icon-close">
+                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <a href="index.html" class="mobile-logo" onclick="showPage('home')">
+                <img src="../images/logo-img/mobile-logo.png" alt="Rays School Logo" class="mobile-logo">
+            </a>
+        </div>
+        <ul class="mobile-nav-menu">
+            <li class="mobile-nav-item">
+                <a href="index.html" class="mobile-nav-link" onclick="showPage('home'); closeMobileMenu();">Home</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link" onclick="toggleMobileDropdown('about-dropdown', this.querySelector('.plus-minus-icon'))">
+                    About<span class="plus-minus-icon">+</span>
+                </a>
+                <div class="mobile-dropdown" id="about-dropdown">
+                    <a href="about.html" class="mobile-nav-link mobile-dropdown-link" onclick="showPage('about-school'); closeMobileMenu();">About Our School</a>
+                    <a href="team.html" class="mobile-nav-link mobile-dropdown-link" onclick="showPage('meet-team'); closeMobileMenu();">Meet Our Team</a>
+                </div>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="#" class="mobile-nav-link" onclick="toggleMobileDropdown('study-dropdown', this.querySelector('.plus-minus-icon'))">
+                    Study at Rays<span class="plus-minus-icon">+</span>
+                </a>
+                <div class="mobile-dropdown" id="study-dropdown">
+                    <a href="programs.html" class="mobile-nav-link mobile-dropdown-link" onclick="showPage('programs'); closeMobileMenu();">Our Programs</a>
+                    <a href="admission.html" class="mobile-nav-link mobile-dropdown-link" onclick="showPage('admission'); closeMobileMenu();">Admission</a>
+                    <a href="coming_soon.html" class="mobile-nav-link mobile-dropdown-link" onclick="showPage('scholarships'); closeMobileMenu();">Scholarships</a>
+                </div>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="gallery.html" class="mobile-nav-link" onclick="showPage('gallery'); closeMobileMenu();">Gallery</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="news.html" class="mobile-nav-link" onclick="toggleMobileDropdown('news-dropdown', this.querySelector('.plus-minus-icon'))">
+                    News<span class="plus-minus-icon">+</span>
+                </a>
+                <div class="mobile-dropdown" id="news-dropdown">
+                    <a href="news.html" class="mobile-nav-link mobile-dropdown-link" onclick="showPage('news'); closeMobileMenu();">News & Events</a>
+                    <a href="coming_soon.html" class="mobile-nav-link mobile-dropdown-link" onclick="showPage('termly-news'); closeMobileMenu();">Termly News</a>
+                </div>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="contact.html" class="mobile-nav-link" onclick="showPage('contact'); closeMobileMenu();">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick="closeMobileMenu()"></div>
+
+    <main>
+        <section id="gallery-section">
+            <div class="gallery-overlay">
+                <h2>
+                    GALLERY
+                </h2>
+            </div>
+        </section>
+        <section id="gallery" class="page-section">
+            <div class="container">
+                <div class="gallery-grid">
+                <div class="gallery-item">
+                <img src="../images/gallery/revision.jpg" alt="Revision session">
+                <p class="gallery-description">Students collaborating on a revision session for their upcoming exams.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="../images/gallery/revision.jpg" alt="Classroom activity">
+                <p class="gallery-description">Learners actively participating in a classroom activity to build teamwork.</p>
+            </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/revision.jpg" alt="Library study">
+                    <p class="gallery-description">A group of students studying quietly in the school library.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/revision.jpg" alt="Sports event">
+                    <p class="gallery-description">Pupils engaging in a friendly sports competition on the school grounds.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/revision.jpg" alt="Science lab">
+                    <p class="gallery-description">Students performing a practical experiment in the science laboratory.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/revision.jpg" alt="Cultural event">
+                    <p class="gallery-description">Children showcasing their talents during a cultural celebration event.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/revision.jpg" alt="Computer lab">
+                    <p class="gallery-description">Students learning ICT skills in a fully equipped computer lab.</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="../images/gallery/revision.jpg" alt="School assembly">
+                    <p class="gallery-description">A morning assembly where students gather for daily announcements and prayer.</p>
+                </div>
+            </div>
+        </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <a href="index.html" class="footer-logo" onclick="showPage('home')">
+                    <img src="../images/logo-img/footer-logo.png" alt="Rays of Grace logo" class="footer-logo-img">
+                </a>
+                <p>RAYS OF GRACE JUNIOR SCHOOL</p>
+                <p>Knowledge Changing Lives Forever</p>
+                <a href="#" class="donate-button">Donate Today</a>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul class="quick-links">
+                    <li><a href="about.html" onclick="showPage('about-school')">About Us</a></li>
+                    <li><a href="programs.html" onclick="showPage('programs')">Programs</a></li>
+                    <li><a href="events.html" onclick="showPage('events')">Events</a></li>
+                    <li><a href="https://www.hoffmanfamilyfoundation.co/" onclick="showPage('hff')">Hoffman Family Foundation</a></li>
+                    <li><a href="https://raysofgraceacademy.org/" onclick="showPage('academy')">Rays of Grace Academy</a></li>
+                    <li><a href="news.html" onclick="showPage('news')">News</a></li>
+                    <li><a href="contact.html" onclick="showPage('contact')">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact-info">
+                <h3>Contact Info</h3>
+                <p>Address: P.O Box 74785 Kampala</p>
+                <p>Location: Kirugu, Njeru Municipality, Buikwe District</p>
+                <p>Tel: +256 778 086 883</p>
+                <p>Email: info@rog.ac.ug</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=100057146993995"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/grace_rays?t=CQyt8ld5PUFktoGwGv5QbQ&s=08"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/raysofgraceacademyuganda?igsh=aGc3b2lyNGo1bmlh"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@raysofgraceacademy"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@raysofgraceuganda"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/256786764239" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section newsletter">
+                <h3>Newsletter</h3>
+                <p>Don't miss any updates. Sign-up for our newsletters</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email...">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 Rays of Grace | All Rights Reserved
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/slider.js"></script>
+
+    <a href="#" id="back-to-top" class="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M342.6 81.4C330.1 68.9 309.8 68.9 297.3 81.4L137.3 241.4C124.8 253.9 124.8 274.2 137.3 286.7C149.8 299.2 170.1 299.2 182.6 286.7L288 181.3L288 552C288 569.7 302.3 584 320 584C337.7 584 352 569.7 352 552L352 181.3L457.4 286.7C469.9 299.2 490.2 299.2 502.7 286.7C515.2 274.2 515.2 253.9 502.7 241.4L342.7 81.4z"/></svg>
+    </a>
+</body>
+</html>
